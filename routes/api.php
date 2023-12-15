@@ -23,4 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('register', Register::class)->only('store');
 Route::apiResource('login', Login::class)->only('store');
-Route::apiResource('movie', Movie::class)->only('index', 'show');
+Route::apiResource('movies', Movie::class)->only('index', 'show');
