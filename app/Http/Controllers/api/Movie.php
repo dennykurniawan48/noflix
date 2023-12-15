@@ -40,7 +40,7 @@ class Movie extends Controller
      */
     public function show(string $id)
     {
-        $data = ModelsMovie::find($id);
+        $data = ModelsMovie::where('slug', '=', $id)->firstOrFail();
         return response()->json(["data" => $data]);
     }
 

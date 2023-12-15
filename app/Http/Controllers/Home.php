@@ -54,7 +54,7 @@ class Home extends Controller
     public function show(string $id)
     {
         $recomendation = Movie::inRandomOrder()->limit(10)->get(); 
-        $movie = Movie::findOrFail($id);
+        $movie = Movie::where('slug', '=', $id)->firstOrFail();
         return view('home.movie',[
             "movie" => $movie,
             "recomendations" => $recomendation

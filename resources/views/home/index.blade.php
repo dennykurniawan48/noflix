@@ -25,7 +25,7 @@
                 @foreach($recomendations as $recomendation)
                 <div>
                 <a
-                    href="/{{$recomendation->id}}"
+                    href="/{{$recomendation->slug}}"
                     class="flex flex-col hover:scale-105 w-40 py-4 px-2 hover:ease-in-out space-y-4"
                 >
                     <img
@@ -54,7 +54,7 @@
                 @foreach($movie->movies as $movie)
                 <div>
                 <a
-                    href="/{{$recomendation->id}}"
+                    href="/{{$recomendation->slug}}"
                     class="flex flex-col hover:scale-105 w-40 py-4 px-2 hover:ease-in-out space-y-4"
                 >
                     <img
