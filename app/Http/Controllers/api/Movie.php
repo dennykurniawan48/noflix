@@ -15,12 +15,12 @@ class Movie extends Controller
     public function index()
     {
         $movies = array();
-        $recomendation = ModelsMovie::select('id', 'title', 'thumbnail', 'release_year')->inRandomOrder(10)->get();
+        $recomendation = ModelsMovie::select('id', 'title', 'thumbnail', 'release_year', 'slug')->inRandomOrder(10)->get();
         $movies[] = ['genre' => 'recomendation', 'data' => $recomendation];
         $genres = Category::all();
 
         foreach($genres as $genre){
-            $moviesByGenre = ModelsMovie::select('id', 'title', 'thumbnail', 'release_year')->where('ref_category', '=', $genre->id)->get();
+            $moviesByGenre = ModelsMovie::select('id', 'title', 'thumbnail', 'release_year','slug')->where('ref_category', '=', $genre->id)->get();
             $movies[] = ['genre' => $genre['category_name'], 'data' => $moviesByGenre];
         }
 
